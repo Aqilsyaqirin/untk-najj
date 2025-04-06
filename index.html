@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Najlaa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="styles.css"> <!-- This links your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="najlaa1.jpg" alt="Najlaa's Picture" class="main-picture" id="mainPicture">
+    </div>
+    <h1>For Najlaa,</h1>
+    <p>You are my everything. I love you more than words can express.</p>
+    
+    <button class="love-button" onclick="triggerLove()">Pretty Girl</button>
+    <div class="love-animation" id="loveAnimation">❤️</div>
+    
+    <div id="extraPictures" class="extra-pictures">
+      <img src="najlaa2.jpg" alt="Najlaa's Picture 2" class="extra-picture">
+      <img src="najlaa3.jpg" alt="Najlaa's Picture 3" class="extra-picture">
+      <p id="message" class="message">I Love You!</p>
+    </div>
+
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+
+    <div class="emojis">
+      <div class="emoji" style="top: 10%; left: 20%;">💖</div>
+      <div class="emoji" style="top: 30%; left: 50%;">😘</div>
+      <div class="emoji" style="top: 60%; left: 80%;">💫</div>
+    </div>
+
+    <div class="floating-text" style="top: 20%; left: 5%;">I Love You!</div>
+    <div class="floating-text" style="top: 30%; left: 40%;">You are my heart 💖</div>
+    <div class="floating-text" style="top: 50%; left: 75%;">Forever and Always 💫</div>
+
+    <p id="iLoveYou" class="i-love-you">I Love You</p>
+  </div>
+
+  <audio id="loveSound" src="love-sound.mp3" preload="auto"></audio> <!-- Sound for clicking -->
+
+  <script>
+    function triggerLove() {
+      const sound = document.getElementById('loveSound');
+      sound.play();
+
+      const extraPictures = document.getElementById('extraPictures');
+      const message = document.getElementById('message');
+      extraPictures.style.display = 'block';
+      extraPictures.style.opacity = 1;
+      message.style.animation = 'fadeInUp 2s ease-in-out';
+
+      const images = document.querySelectorAll('.extra-picture');
+      images.forEach((image, index) => {
+        setTimeout(() => {
+          image.classList.add('show');
+        }, index * 500);
+      });
+
+      const loveAnim = document.getElementById('loveAnimation');
+      loveAnim.style.animation = 'loveFly 3s ease-in-out forwards';
+
+      const loveText = document.getElementById('iLoveYou');
+      loveText.style.display = 'block';
+      loveText.style.animation = 'fadeInSlideUp 3s ease-in-out forwards';
+
+      setTimeout(() => {
+        loveAnim.style.animation = '';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
